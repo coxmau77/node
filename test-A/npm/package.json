@@ -1,12 +1,16 @@
 {
   "name": "npm",
-  "version": "1.0.0",
+  "version": "0.0.1-alpha.2",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "picocolors": "1.0.0"
+  }
 }

@@ -1,0 +1,25 @@
+{
+  "name": "http-test",
+  "version": "0.0.0",
+  "description": "Prueba http servidores con node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coxmau77/node.git"
+  },
+  "keywords": [
+    "node",
+    "javascript",
+    "http",
+    "server"
+  ],
+  "author": "Mauricio Cox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coxmau77/node/issues"
+  },
+  "homepage": "https://github.com/coxmau77/node#readme"
+}
