@@ -1,4 +1,6 @@
 const express = require('express');
+const { faker } = require('@faker-js/faker');
+
 const app = express();
 const PORT = 3000;
 
@@ -12,28 +14,34 @@ app.get('/new', (request, response) => {
 });
 
 app.get('/products', (request, response) => {
-  response.json([
-    {
-      title: 'Título del producto #1',
-      description: 'Breve descripción del producto',
-      sku: 'ARG2024',
-      price: 2499.99,
-      stock: 48,
-      onsale: false,
-      date: '2024-08-01',
-      category: 'Categoría_3',
-    },
-    {
-      title: 'Título del producto #2',
-      description: 'Breve descripción del producto',
-      sku: 'BSAS2024',
-      price: 3499.99,
-      stock: 64,
-      onsale: true,
-      date: '2024-08-01',
-      category: 'Categoría_5',
-    },
-  ]);
+  const products = [];
+  const { size } = request.query;
+  const limit = size || 10;
+
+  for (let index = 0; index < limit; index++) {
+    products.push({
+      name: faker.commerce.productName(),
+      description: faker.commerce.productDescription(),
+      id: faker.string.uuid(),
+      price: parseFloat(faker.commerce.price({ min: 100, max: 200, dec: 2 })),
+      material: faker.commerce.productMaterial(),
+      image: faker.image.url({
+        width: 640,
+        height: 480,
+        category: 'technics',
+        randomize: true,
+        https: true,
+      }),
+      onsale: faker.datatype.boolean(),
+    });
+  }
+  response.json(products);
+});
+
+app.get('/products/filter', (request, response) => {
+  // Los endoints que sean especificos deben estar antes de los que son dinamicos como por ejemplo /products/:id
+  // response.json({});
+  response.send('Esto es la ruta para filtrar');
 });
 
 app.get('/products/:id', (request, response) => {
@@ -52,6 +60,19 @@ app.get('/categories/:categoryId/products/:productId', (request, response) => {
     productId,
     description: 'Devuelve un producto por varios parametros',
   });
+});
+
+app.get('/users', (request, response) => {
+  const { limit, offset } = request.query;
+
+  if (limit && offset) {
+    response.json({
+      limit,
+      offset,
+    });
+  } else {
+    response.send('No existen parámetros');
+  }
 });
 
 // Iniciar servidor
