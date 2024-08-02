@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <form>
+    <input list="category">
+    <datalist id="category">
+      <option>categoría #A</option>
+      <option>categoría #B</option>
+      <option>categoría #C</option>
+      <option>categoría #D</option>
+      <option>categoría #E</option>
+    </datalist>
+  </form> -->
+
+  <!-- <form>
+    <input list="category">
+    <datalist id="category">
+      <option value="Categoría_1"></option>
+      <option value="Categoría_2"></option>
+      <option value="Categoría_3"></option>
+      <option value="Categoría_4"></option>
+      <option value="Categoría_5"></option>
+
+    </datalist>
+  </form> -->
+
+  <!-- <form>
+    <label for="category">Selecciona una categoría:</label>
+    <br>
+    <input list="category" id="category-input" name="category" placeholder="Elige o escribe una categoría" required>
+    <datalist id="category">
+      <option value="Categoría_1">Descripción de Categoría 1</option>
+      <option value="Categoría_2">Descripción de Categoría 2</option>
+      <option value="Categoría_3">Descripción de Categoría 3</option>
+      <option value="Categoría_4">Descripción de Categoría 4</option>
+      <option value="Categoría_5">Descripción de Categoría 5</option>
+    </datalist>
+
+    <button type="submit">Enviar</button>
+  </form> -->
+  <form id="myForm">
+    <label for="category">Selecciona una categoría:</label>
+    <br>
+    <input list="category" id="category-input" name="category" placeholder="Elige o escribe una categoría">
+    <datalist id="category">
+      <option value="Categoría_1"></option>
+      <option value="Categoría_2"></option>
+      <option value="Categoría_3"></option>
+      <option value="Categoría_4"></option>
+      <option value="Categoría_5"></option>
+    </datalist>
+    <br>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="output"></p>
+
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Previene el envío del formulario
+      const categoryValue = document.getElementById('category-input').value;
+      document.getElementById('output').textContent = `El valor seleccionado es: ${categoryValue}`;
+    });
+  </script>
+
+</body>
+
+</html>
